@@ -11,8 +11,8 @@ public class InputNumberConverter {
     List<Integer> convertableNumbersList = Collections.unmodifiableList(Arrays.asList(3, 5, 7));
 
     public String convertNumber(int inputNumber) {
-        List<NumberConverter> convertableNumbers = initializeConverterByOrderOfAppearance(inputNumber);
-        Optional<String> convertedNumberOptional = convertableNumbers
+        List<NumberConverter> numberConverters = initializeConvertersByOrderOfAppearance(inputNumber);
+        Optional<String> convertedNumberOptional = numberConverters
                 .stream()
                 .map(numberConverter -> numberConverter.convert(inputNumber))
                 .reduce((s, s2) -> s.concat(s2))
@@ -21,7 +21,7 @@ public class InputNumberConverter {
         return convertedNumberOptional.orElse(String.valueOf(inputNumber));
     }
 
-    private List<NumberConverter> initializeConverterByOrderOfAppearance(int inputNumber) {
+    private List<NumberConverter> initializeConvertersByOrderOfAppearance(int inputNumber) {
         List<NumberConverter> convertableNumbers = new ArrayList<>();
         String inputNumberAsString = String.valueOf(inputNumber);
 
@@ -37,7 +37,7 @@ public class InputNumberConverter {
         for (int i = 0; i < inputNumberAsString.length(); i++) {
 
             char digit = inputNumberAsString.charAt(i);
-            if (isDigitAlreadyHaveHisConverter(digitsConverted, digit)) {
+            if (!isDigitAlreadyHaveHisConverter(digitsConverted, digit)) {
                 digitsConverted.add(digit);
 
                 int potentielConvertableNumber = digit - '0';
@@ -55,7 +55,7 @@ public class InputNumberConverter {
     }
 
     private boolean isDigitAlreadyHaveHisConverter(List<Character> digitsConverted, char digit) {
-        return !digitsConverted.contains(digit);
+        return digitsConverted.contains(digit);
     }
 
     private void addConverter(NumberConverter potentielConvertableNumber, List<NumberConverter> convertableNumbers) {
