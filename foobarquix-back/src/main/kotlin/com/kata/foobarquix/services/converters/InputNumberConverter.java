@@ -22,13 +22,13 @@ public class InputNumberConverter {
     }
 
     private List<NumberConverter> initializeConvertersByOrderOfAppearance(int inputNumber) {
-        List<NumberConverter> convertableNumbers = new ArrayList<>();
+        List<NumberConverter> numbersConverters = new ArrayList<>();
         String inputNumberAsString = String.valueOf(inputNumber);
 
         for (int i = 0; i < convertableNumbersList.size(); i++) {
             int potentielConvertableNumber = convertableNumbersList.get(i);
             if (NumberConverter.isDivisable(potentielConvertableNumber, inputNumber)) {
-                addConverter(getDivisableConverter(potentielConvertableNumber), convertableNumbers);
+                addConverter(getDivisableConverter(potentielConvertableNumber), numbersConverters);
             }
         }
 
@@ -45,13 +45,13 @@ public class InputNumberConverter {
                 for (int j = 0; j < convertableNumbersList.size(); j++) {
                     int convertableNumber = convertableNumbersList.get(j);
                     if (NumberConverter.contains(potentielConvertableNumber, convertableNumber)) {
-                        addConverter(getContainsConverter(potentielConvertableNumber), convertableNumbers);
+                        addConverter(getContainsConverter(potentielConvertableNumber), numbersConverters);
                     }
                 }
             }
         }
 
-        return convertableNumbers;
+        return numbersConverters;
     }
 
     private boolean isDigitAlreadyHaveHisConverter(List<Character> digitsConverted, char digit) {
