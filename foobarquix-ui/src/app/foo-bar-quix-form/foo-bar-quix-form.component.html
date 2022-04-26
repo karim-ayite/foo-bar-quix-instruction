@@ -1,0 +1,15 @@
+<div class="container">
+  <form [formGroup]="myForm">
+    <div class="form-group">
+      <label for="numberToConvert">Number to convert</label>
+      <input min="0" max="10" type="number" name="numberToConvert" class="form-control" id="numberToConvert"  placeholder="inputNumber" formControlName="numberToConvert" pattern=".{1,9}" step="1" maxlength="{{this.maxLength}}" required>
+
+      <div *ngIf="numberToConvert.touched && numberToConvert.invalid" class="alert alert-danger " style="margin-top: 1%">
+        Input number invalid :
+        <div *ngIf="numberToConvert.errors.required">Input number is required.</div>
+
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"  (click)="submitNumber()">Convert</button>
+  </form>
+</div>
