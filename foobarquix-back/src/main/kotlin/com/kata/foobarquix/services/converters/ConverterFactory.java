@@ -17,9 +17,9 @@ public class ConverterFactory {
 
     public NumberConverter createDividableConverter(Integer convertableNumber) {
         if (convertableNumber == FOO_NUMBER) {
-            return new DivisableConverter(FOO, convertableNumber);
+            return new DividableConverter(FOO, convertableNumber);
         } else if (convertableNumber == BAR_NUMBER) {
-            return new DivisableConverter(BAR, convertableNumber);
+            return new DividableConverter(BAR, convertableNumber);
         }
         return null;
     }

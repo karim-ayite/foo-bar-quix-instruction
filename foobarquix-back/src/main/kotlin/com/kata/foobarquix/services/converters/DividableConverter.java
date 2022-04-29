@@ -1,25 +1,21 @@
 package com.kata.foobarquix.services.converters;
 
-public class DivisableConverter extends NumberConverter {
+public class DividableConverter extends NumberConverter {
 
 
-    public DivisableConverter(String convertableNumber,int numberConvertion) {
-        super(convertableNumber,numberConvertion);
+    public DividableConverter(String convertableNumber, int numberConversion) {
+        super(convertableNumber,numberConversion);
     }
-
 
     @Override
     public String convert( int inputNumber) {
         String convertedNumber = "";
 
         if (isDivisable(convertableNumber,inputNumber)){
-            convertedNumber += numberConvertion;
+            convertedNumber += numberConversion;
         }
 
         return convertedNumber;
     }
-
-
-
 
 }

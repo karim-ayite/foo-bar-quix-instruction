@@ -11,7 +11,7 @@ public class ContainsConverter extends NumberConverter {
     String convert(int inputNumber) {
         String convertedNumber = "";
         if (contains(convertableNumber,inputNumber)){
-            convertedNumber += String.valueOf(inputNumber).replace(String.valueOf(convertableNumber),this.numberConvertion);
+            convertedNumber += String.valueOf(inputNumber).replace(String.valueOf(convertableNumber),this.numberConversion);
         }
         return convertedNumber;
     }

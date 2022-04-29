@@ -11,6 +11,7 @@ class FooBarQuixService {
         val inputNumberConverter = InputNumberConverter();
 
         val convertedNumber = inputNumberConverter.convertNumber(number)
+
         return if (convertedNumber == "") number.toString() else convertedNumber
     }
 

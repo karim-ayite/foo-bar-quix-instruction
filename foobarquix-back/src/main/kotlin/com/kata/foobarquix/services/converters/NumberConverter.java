@@ -3,10 +3,10 @@ package com.kata.foobarquix.services.converters;
 public abstract class NumberConverter {
 
     protected int convertableNumber;
-    protected String numberConvertion;
+    protected String numberConversion;
 
-    public NumberConverter(String numberConvertion,int convertableNumber) {
-        this.numberConvertion = numberConvertion;
+    public NumberConverter(String numberConversion,int convertableNumber) {
+        this.numberConversion = numberConversion;
         this.convertableNumber = convertableNumber;
     }
 
