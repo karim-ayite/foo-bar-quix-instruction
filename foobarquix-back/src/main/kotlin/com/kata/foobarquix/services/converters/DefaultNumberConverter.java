@@ -2,7 +2,7 @@ package com.kata.foobarquix.services.converters;
 
 import java.util.*;
 
-public class InputNumberConverter {
+public class DefaultNumberConverter {
 
     public String convertNumber(int inputNumber) {
 
