@@ -19,7 +19,7 @@ public class ListConverterInitializer {
         ConverterFactory dividableConverterFactory= new ConverterFactory();
         for (int potentialDividableNumber : ConverterFactory.convertableNumbersList) {
             if (NumberConverter.isDivisable(potentialDividableNumber, inputNumber)) {
-                addConverter(dividableConverterFactory.getDividableConverter(potentialDividableNumber), numbersConverters);
+                addConverter(dividableConverterFactory.createDividableConverter(potentialDividableNumber), numbersConverters);
             }
         }
     }
@@ -40,7 +40,7 @@ public class ListConverterInitializer {
 
                 for (int convertableNumber : ConverterFactory.convertableNumbersList) {
                     if (NumberConverter.contains(potentialContainedNumber, convertableNumber)) {
-                        addConverter(containedConverterFactory.getContainsConverter(potentialContainedNumber), numbersConverters);
+                        addConverter(containedConverterFactory.createContainsConverter(potentialContainedNumber), numbersConverters);
                     }
                 }
             }

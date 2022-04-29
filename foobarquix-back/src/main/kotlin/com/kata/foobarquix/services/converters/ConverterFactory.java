@@ -15,7 +15,7 @@ public class ConverterFactory {
 
     public static final List<Integer> convertableNumbersList = Collections.unmodifiableList(Arrays.asList(FOO_NUMBER, BAR_NUMBER, QUIX_NUMBER));
 
-    public NumberConverter getDividableConverter(Integer convertableNumber) {
+    public NumberConverter createDividableConverter(Integer convertableNumber) {
         if (convertableNumber == FOO_NUMBER) {
             return new DivisableConverter(FOO, convertableNumber);
         } else if (convertableNumber == BAR_NUMBER) {
@@ -24,7 +24,7 @@ public class ConverterFactory {
         return null;
     }
 
-    public NumberConverter getContainsConverter(Integer convertableNumber) {
+    public NumberConverter createContainsConverter(Integer convertableNumber) {
         if (convertableNumber == FOO_NUMBER) {
             return new ContainsConverter(FOO, convertableNumber);
         } else if (convertableNumber == BAR_NUMBER) {
