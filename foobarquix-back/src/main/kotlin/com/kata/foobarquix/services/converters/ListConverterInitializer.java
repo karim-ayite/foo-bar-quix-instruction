@@ -19,18 +19,18 @@ public class ListConverterInitializer {
     public List<NumberConverter> init(int inputNumber) {
         List<NumberConverter> numbersConverters = new ArrayList<>();
 
-        String inputNumberAsString = String.valueOf(inputNumber);
 
-        initializeDivisableConverters(inputNumber, numbersConverters);
 
-        initializeContainsConverters(numbersConverters, inputNumberAsString);
+        initializeDividableConverters(inputNumber, numbersConverters);
+
+        initializeContainsConverters(inputNumber, numbersConverters);
 
         return numbersConverters;
     }
 
-    private void initializeContainsConverters(List<NumberConverter> numbersConverters, String inputNumberAsString) {
+    private void initializeContainsConverters(int inputNumber, List<NumberConverter> numbersConverters) {
         List<Character> digitsConverted = new ArrayList<>();
-
+        String inputNumberAsString = String.valueOf(inputNumber);
         for (int i = 0; i < inputNumberAsString.length(); i++) {
 
             char digit = inputNumberAsString.charAt(i);
@@ -48,7 +48,7 @@ public class ListConverterInitializer {
         }
     }
 
-    private void initializeDivisableConverters(int inputNumber, List<NumberConverter> numbersConverters) {
+    private void initializeDividableConverters(int inputNumber, List<NumberConverter> numbersConverters) {
         for (int potentielConvertableNumber : convertableNumbersList) {
             if (NumberConverter.isDivisable(potentielConvertableNumber, inputNumber)) {
                 addConverter(getDividableConverter(potentielConvertableNumber), numbersConverters);
